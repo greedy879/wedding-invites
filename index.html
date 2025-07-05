@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>دعوة زفاف</title>
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background: #fef9f4;
+      text-align: center;
+      padding: 50px;
+      direction: rtl;
+    }
+    .card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      color: #8B0000;
+    }
+    .guest-id {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #333;
+      background: #eee;
+      padding: 10px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>مرحباً بك في حفل زفافنا!</h1>
+    <p>يسعدنا حضورك ومشاركتك فرحتنا في هذا اليوم المميز.</p>
+    <div id="guest-id" class="guest-id"></div>
+  </div>
+
+  <script>
+    // استخراج رقم الضيف من الـ URL
+    const params = new URLSearchParams(window.location.search);
+    const guestId = params.get("id");
+
+    // عرض الرقم في الصفحة
+    if (guestId) {
+      document.getElementById("guest-id").textContent = `الضيف رقم: ${guestId}`;
+    } else {
+      document.getElementById("guest-id").textContent = "⚠️ لم يتم تحديد رقم الدعوة.";
+    }
+  </script>
+</body>
+</html>
